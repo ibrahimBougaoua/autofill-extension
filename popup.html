@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Autofill Information</title>
+  <script src="popup.js" defer></script>
+  <style>
+    body {
+      width: 320px;
+      font-family: Arial, sans-serif;
+      padding: 5px;
+      background-color: #f9f9f9;
+    }
+    h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+      background-color: #fff;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    th {
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #607d8b;
+      color: white;
+      font-weight: bold;
+    }
+    td {
+      padding-left: 6px;
+    }
+    tr {
+      border-bottom: 1px solid #ddd;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    button {
+        background-color: #2196f3;
+        color: white;
+        border: none;
+        padding: 8px 10px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin: 4px 0;
+        font-size: 12px;
+        width: 90%;
+        display: inline-block;
+    }
+    button:hover {
+      background-color: #16a085;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+    input {
+      width: 100%;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .form-container {
+      background-color: #fff;
+      margin-top: 5px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .group
+    {
+      padding: 10px;
+    }
+    tr td:first-child {
+        width: 30%;
+    } 
+    tr td:last-child {
+        width: 30%;
+    }
+    .w-100 {
+        width: 100%;
+    }
+    h2 {
+        background-color: #16a085;
+        width: 100%;
+        text-align: center;
+        border-radius: 5px;
+        padding: 10px 0px 10px 0;
+        color: white;
+    }
+    h3 {
+        text-align: center;
+    }
+    .logo {
+        width: 30%;
+        height: 30%;
+        border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <h3>Autofill Information</h3>
+  <img src="/images/logo.png" class="logo" alt="sky Studio" />
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="infoTableBody">
+      <!-- Rows will be added here dynamically -->
+    </tbody>
+  </table>
+  <div class="form-container">
+    <h2>Insert Informations</h2>
+    <div class="group">
+        <div class="form-group">
+            <input type="text" id="name" name="name" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <input type="text" id="city" name="city" placeholder="City">
+          </div>
+          <div class="form-group">
+            <input type="text" id="nin" name="nin" placeholder="NIN">
+          </div>
+          <div class="form-group">
+            <input type="text" id="nss" name="nss" placeholder="NSS">
+          </div>
+          <div class="form-group">
+            <input type="text" id="phone" name="phone" placeholder="Phone">
+          </div>
+          <button id="saveNew" class="w-100">
+            <img src="images/save.svg" alt="Save" />
+          </button>
+    </div>
+  </div>
+</body>
+</html>
