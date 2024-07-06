@@ -28,6 +28,7 @@ Autofill Extension is a Chrome extension designed to help users automatically fi
 
 ### Directory Structure
 
+```php
 autofill-extension/
 ├── images/
 │ ├── select-icon.svg
@@ -38,8 +39,10 @@ autofill-extension/
 │ ├── icon128.png
 ├── popup.html
 ├── popup.js
+├── background.js
+├── content.js
 ├── manifest.json
-├── README.md
+```
 
 ### Usage Instructions
 
@@ -55,6 +58,20 @@ autofill-extension/
 4. **Deleting a Client**:
     - Click the **Delete** button next to a client record.
     - Confirm the deletion in the prompt that appears.
+
+
+### First step
+<img src="https://raw.githubusercontent.com/ibrahimBougaoua/autofill-extension/main/preview/one.png" width="100%"  /><br />
+
+### Second step
+<img src="https://raw.githubusercontent.com/ibrahimBougaoua/autofill-extension/main/preview/tow.png" width="100%"  /><br />
+
+### Third step
+<img src="https://raw.githubusercontent.com/ibrahimBougaoua/autofill-extension/main/preview/three.png" width="100%"  /><br />
+
+### Fourth step
+<img src="https://raw.githubusercontent.com/ibrahimBougaoua/autofill-extension/main/preview/four.png" width="100%"  /><br />
+
 
 ### Contributing
 
