@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Autofill Information",
   "version": "1.0",
-  "description": "An extension to autofill form fields.",
+  "description": "You can fill in multiple rows of data to have it filled automatically",
   "permissions": ["storage", "activeTab", "scripting"],
   "background": {
     "service_worker": "background.js"

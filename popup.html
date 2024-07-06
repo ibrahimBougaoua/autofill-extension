@@ -5,10 +5,12 @@
   <script src="popup.js" defer></script>
   <style>
     body {
-      width: 320px;
+      width: 350px;
+      height: 600px; /* Set the desired height */
       font-family: Arial, sans-serif;
-      padding: 5px;
+      padding: 0px 5px 5px 5px;
       background-color: #f9f9f9;
+      overflow-y: auto; /* Ensure scrolling */
     }
     h3 {
       margin-bottom: 10px;
@@ -48,7 +50,7 @@
         background-color: #2196f3;
         color: white;
         border: none;
-        padding: 8px 10px;
+        padding: 5px 5px;
         cursor: pointer;
         border-radius: 4px;
         margin: 4px 0;
@@ -82,13 +84,13 @@
     }
     .group
     {
-      padding: 10px;
+      padding: 0px 10px 10px 10px;
     }
-    tr td:first-child {
+    tr td {
         width: 30%;
-    } 
-    tr td:last-child {
-        width: 30%;
+    }
+    span {
+        font-weight: bold;
     }
     .w-100 {
         width: 100%;
@@ -98,55 +100,128 @@
         width: 100%;
         text-align: center;
         border-radius: 5px;
-        padding: 10px 0px 10px 0;
+        padding: 6px 0px 6px 0;
         color: white;
     }
     h3 {
-        text-align: center;
+        text-align: left;
     }
     .logo {
-        width: 30%;
-        height: 30%;
+        width: 80%;
+        height: 80%;
         border-radius: 50%;
+    }
+    .w-75 {
+        width: 75%;
+    }
+    .w-25 {
+        width: 25%;
+    }
+    .w-50 {
+        width: 50%;
+    }
+    .gap-5
+    {
+        gap: 5px;
+    }
+    .d-flex {
+        display: flex;
+    }
+    .mb-10 {
+        margin-bottom: 10px;
+    }
+    .delete-button {
+        background-color: red;
+    }
+    .delete-button:hover {
+        background-color: rgba(199, 2, 2, 0.582);
+    }
+    .table-container {
+      max-height: 35vh; /* Adjust the height as needed */
+      overflow-y: auto;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%; /* Make sure the div takes up the full height of its container */
+    }
+    .center img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    /* Scrollbar styles */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #607d8b;
+      border-radius: 10px;
+      border: 3px solid #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #607d8b;
     }
   </style>
 </head>
 <body>
-  <h3>Autofill Information</h3>
-  <img src="/images/logo.png" class="logo" alt="sky Studio" />
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody id="infoTableBody">
-      <!-- Rows will be added here dynamically -->
-    </tbody>
-  </table>
+  <div class="d-flex mb-10">
+      <div class="w-75">
+          <h3>Autofill Information</h3>
+          <p>You can fill in multiple rows of data<br/> to have it filled automatically.</p>
+      </div>
+      <div class="w-25">
+          <img src="/images/logo.png" class="logo" alt="sky Studio" />
+      </div>
+  </div>
+  <div class="table-container">
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Select</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody id="infoTableBody">
+        <!-- Rows will be added here dynamically -->
+        </tbody>
+    </table>
+    <div class="center">
+        <img src="/images/empty.svg" alt="empty" />
+    </div>
+  </div>
   <div class="form-container">
     <h2>Insert Informations</h2>
     <div class="group">
+        <div class="d-flex gap-5">
+            <div class="form-group w-50">
+                <input type="text" id="name" name="name" placeholder="Name">
+              </div>
+            <div class="form-group w-50">
+                <input type="text" id="city" name="city" placeholder="City">
+            </div>
+        </div>
         <div class="form-group">
-            <input type="text" id="name" name="name" placeholder="Name">
-          </div>
-          <div class="form-group">
-            <input type="text" id="city" name="city" placeholder="City">
-          </div>
-          <div class="form-group">
-            <input type="text" id="nin" name="nin" placeholder="NIN">
-          </div>
-          <div class="form-group">
-            <input type="text" id="nss" name="nss" placeholder="NSS">
-          </div>
-          <div class="form-group">
-            <input type="text" id="phone" name="phone" placeholder="Phone">
-          </div>
-          <button id="saveNew" class="w-100">
-            <img src="images/save.svg" alt="Save" />
-          </button>
+          <input type="text" id="nin" name="nin" placeholder="NIN">
+        </div>
+        <div class="form-group">
+          <input type="text" id="nss" name="nss" placeholder="NSS">
+        </div>
+        <div class="form-group">
+          <input type="text" id="phone" name="phone" placeholder="Phone">
+        </div>
+        <button id="saveNew" class="w-100">
+          <img src="images/save.svg" alt="Save" />
+        </button>
     </div>
   </div>
 </body>
