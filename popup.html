@@ -19,7 +19,6 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 10px;
       background-color: #fff;
       border-radius: 5px;
       overflow: hidden;
@@ -153,6 +152,12 @@
       max-width: 100%;
       max-height: 100%;
     }
+    .has-records {
+      display: none;
+    }
+    .no-records {
+      display: flex;
+    }
     /* Scrollbar styles */
     ::-webkit-scrollbar {
       width: 12px;
@@ -195,7 +200,7 @@
         <!-- Rows will be added here dynamically -->
         </tbody>
     </table>
-    <div class="center">
+    <div class="center d-none">
         <img src="/images/empty.svg" alt="empty" />
     </div>
   </div>
@@ -204,20 +209,20 @@
     <div class="group">
         <div class="d-flex gap-5">
             <div class="form-group w-50">
-                <input type="text" id="name" name="name" placeholder="Name">
+                <input type="text" id="name" name="name" placeholder="Name" required>
               </div>
             <div class="form-group w-50">
-                <input type="text" id="city" name="city" placeholder="City">
+                <input type="text" id="city" name="city" placeholder="City" required>
             </div>
         </div>
         <div class="form-group">
-          <input type="text" id="nin" name="nin" placeholder="NIN">
+          <input type="text" id="nin" name="nin" placeholder="NIN" required>
         </div>
         <div class="form-group">
-          <input type="text" id="nss" name="nss" placeholder="NSS">
+          <input type="text" id="nss" name="nss" placeholder="NSS" required>
         </div>
         <div class="form-group">
-          <input type="text" id="phone" name="phone" placeholder="Phone">
+          <input type="text" id="phone" name="phone" placeholder="Phone" required>
         </div>
         <button id="saveNew" class="w-100">
           <img src="images/save.svg" alt="Save" />

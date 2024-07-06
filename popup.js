@@ -5,24 +5,44 @@ document.addEventListener('DOMContentLoaded', function() {
     chrome.storage.sync.get(["formDataList"], (result) => {
         const formDataList = result.formDataList || [];
         populateTable(formDataList);
+        updateDivClass(formDataList.length);
     });
 
     if (saveNewButton) {
         saveNewButton.addEventListener("click", () => {
-            const name = document.getElementById("name").value;
-            const city = document.getElementById("city").value;
-            const nin = document.getElementById("nin").value;
-            const nss = document.getElementById("nss").value;
-            const phone = document.getElementById("phone").value;
-            const newEntry = { name,city, nin, nss, phone };
+            const name = document.getElementById("name");
+            const city = document.getElementById("city");
+            const nin = document.getElementById("nin");
+            const nss = document.getElementById("nss");
+            const phone = document.getElementById("phone");
 
-            chrome.storage.sync.get(["formDataList"], (result) => {
-                const formDataList = result.formDataList || [];
-                formDataList.push(newEntry);
-                chrome.storage.sync.set({ formDataList: formDataList }, () => {
-                    populateTable(formDataList);
-                });
+            // Check if any field is empty
+            const fields = [name, city, nin, nss, phone];
+            let isValid = true;
+
+            fields.forEach(field => {
+                if (!field.value) {
+                    field.style.border = "1px solid #e74c3c";
+                    isValid = false;
+                } else {
+                    field.style.border = "";
+                }
             });
+
+            if (isValid) {
+                const newEntry = { name: name.value, city: city.value, nin: nin.value, nss: nss.value, phone: phone.value };
+
+                chrome.storage.sync.get(["formDataList"], (result) => {
+                    const formDataList = result.formDataList || [];
+                    formDataList.push(newEntry);
+                    chrome.storage.sync.set({ formDataList: formDataList }, () => {
+                        populateTable(formDataList);
+                        updateDivClass(formDataList.length);
+                        // Clear the input fields
+                        fields.forEach(field => field.value = "");
+                    });
+                });
+            }
         });
     }
 });
@@ -86,6 +106,18 @@ function deleteEntry(index) {
         formDataList.splice(index, 1);
         chrome.storage.sync.set({ formDataList: formDataList }, () => {
             populateTable(formDataList);
+            updateDivClass(formDataList.length);
         });
     });
+}
+
+function updateDivClass(recordCount) {
+    const div = document.querySelector('.center');
+    if (recordCount > 0) {
+        div.classList.add('has-records');
+        div.classList.remove('no-records');
+    } else {
+        div.classList.add('no-records');
+        div.classList.remove('has-records');
+    }
 }
